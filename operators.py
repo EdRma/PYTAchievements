@@ -1,6 +1,6 @@
 x = 12
 y = 3
-answer = input("whitch operator?")
+answer = input("which operator?")
 print("")
 if answer.lower() == "Addition":
  print(x + y)
