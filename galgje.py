@@ -1,64 +1,64 @@
 import random
-word_list = ["schaap", "baard", "chocolade", "openbaar", "weiland", "strandhuis", "spook"]
+woord_lijst = ["schaap", "baard", "chocolade", "openbaar", "weiland", "strandhuis", "spook"]
 
-def get_word(word_list):
-    word = random.choice(word_list)
-    return word.upper()
+def get_word(woord_lijst):
+    woord = random.choice(woord_lijst)
+    return woord.upper()
 
 
-def play(word):
-    word_completion = "_" * len(word)
-    guessed = False
-    guessed_letters = []
-    guessed_words = []
-    tries = 6
+def play(woord):
+    woord_compleet = "_" * len(woord)
+    gegokt = False
+    gegokte_letters = []
+    gegokt_woorden = []
+    kansen = 6
     print("Let's play Hangman")
-    print(display_hangman(tries))
-    print(word_completion)
+    print(display_hangman(kansen))
+    print(woord_compleet)
     print("\n")
-    while not guessed and tries > 0:
-        guess = input("Raad een letter: ").upper()
-        if len(guess) == 1 and guess.isalpha():
-            if guess in guessed_letters:
-                print("dit heb je al geprobeerd", guess, "!")
-            elif guess not in word:
-                print(guess, "is niet in het woord :(")
-                tries -= 1
-                guessed_letters.append(guess)
+    while not gegokt and kansen > 0:
+        gok = input("Raad een letter: ").upper()
+        if len(gok) == 1 and gok.isalpha():
+            if gok in gegokte_letters:
+                print("dit heb je al geprobeerd", gok, "!")
+            elif gok not in woord:
+                print(gok, "is niet in het woord :(")
+                kansen -= 1
+                gegokte_letters.append(gok)
             else:
-                print("lekker bezig,", guess, "is in het woord!")
-                guessed_letters.append(guess)
-                word_as_list = list(word_completion)
-                indices = [i for i, letter in enumerate(word) if letter == guess]
+                print("lekker bezig,", gok, "is in het woord!")
+                gegokte_letters.append(gok)
+                woord_as_list = list(woord_compleet)
+                indices = [i for i, letter in enumerate(woord) if letter == gok]
                 for index in indices:
-                    word_as_list[index] = guess
-                word_completion = "".join(word_as_list)
-                if "_" not in word_completion:
-                    guessed = True
-        elif len(guess) == len(word) and guess.isalpha():
-            if guess in guessed_words:
-                print("dit heb je al geprobeerd ", guess, "!")
-            elif guess != word:
-                print(guess, " is niet in het woord :(")
-                tries -= 1
-                guessed_words.append(guess)
+                    woord_as_list[index] = gok
+                woord_compleet = "".join(woord_as_list)
+                if "_" not in woord_compleet:
+                    gegokt = True
+        elif len(gok) == len(woord) and gok.isalpha():
+            if gok in gegokt_woorden:
+                print("dit heb je al geprobeerd ", gok, "!")
+            elif gok != woord:
+                print(gok, " is niet in het woord :(")
+                kansen -= 1
+                gegokt_woorden.append(gok)
             else:
-                guessed = True
-                word_completion = word
+                gegokt = True
+                woord_compleet = woord
         else:
             print("verkeerde input")
-        print(display_hangman(tries))
-        print(word_completion)
+        print(display_hangman(kansen))
+        print(woord_compleet)
         print("\n")
-    if guessed:
+    if gegokt:
         print("goed gedaan, je hebt het woord geraden!")
     else:
-        print("sorry, je hebt het woord niet geraden. het woord was " + word + ". hopelijk heb je hem de volgende keer!")
+        print("sorry, je hebt het woord niet geraden. het woord was " + woord + ". hopelijk heb je hem de volgende keer!")
 
 
 
 
-def display_hangman(tries):
+def display_hangman(kansen):
     stages = [  """
                    --------
                    |      |
@@ -123,14 +123,14 @@ def display_hangman(tries):
                    -
                    """
     ]
-    return stages[tries]
+    return stages[kansen]
 
 def main():
-    word = get_word(word_list)
-    play(word)
+    woord = get_word(woord_lijst)
+    play(woord)
     while input("Nog een keer? (J/N) ").upper() == "J":
-        word = get_word(word_list)
-        play(word)
+        word = get_word(woord_lijst)
+        play(woord)
 
 if __name__ == "__main__":
     main()

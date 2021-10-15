@@ -3,7 +3,7 @@ import math
 #Vervang de 0-en met de juiste berekeningen
 
 trees               = 333                #hoeveel bomen zijn er in totaal?
-shadedTrees         = 222       #hoeveel bomen staan er in de schaduw (afgerond naar boven)?
+shadedTrees         = 222               #hoeveel bomen staan er in de schaduw (afgerond naar boven)?
 sunnyTrees          = 111                #hoeveel in de zon?
 
 shadeOutputModifier = 80                 #hoeveel procent productie geeft een schaduwboom?
