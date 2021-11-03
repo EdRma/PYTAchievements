@@ -13,7 +13,8 @@ def play(woord):
     gegokt_woorden = []
     kansen = 6
     print("hallo daar! welom bij galgje!")
-    print("Bij het spel Galgje gaat het erom dat je het woord gaat raden dat is genoteerd in de woordenlijst(maar wat je niet kan zien). Je gaat losse letters raden. .Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend.")
+    print("Bij het spel Galgje gaat het erom dat je het woord gaat raden dat is genoteerd in de woordenlijst(maar wat je niet kan zien).")
+    print("Je gaat losse letters raden. Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend.")
     print(display_hangman(kansen))
     print(woord_compleet)
     print("\n")
