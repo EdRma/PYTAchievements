@@ -19,6 +19,6 @@ owners              = 4                  #met hoeveel mensen verdelen we de appe
 
 eatCount            = 0,5                #hoeveel appels houden we over omdat ze niet eerlijk te verdelen zijn?
 sellableOutput      = 10,489             #hoeveel appels zijn er over en dus verkoopbaar?
-cut                 = totalOutput  / owners           #hoeveel appels mag ik verkopen?
+cut                 = totalOutput / owners           #hoeveel appels mag ik verkopen?
 
 print(cut)
